@@ -1,15 +1,60 @@
-body{
-    background-color: rgb(217, 255, 0);
-    text-align: justify;
-    font-family: Arial, Helvetica, sans-serif; 
-    font-size: xx-large;   
-    font-weight: bolder;
-    text-shadow: black;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-header{
-    background-color: beige;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    font-size: xx-large;
-    font-weight: bolder;
-    }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Garante o layout com uma imagem abaixo da outra */
+.galeria-imagens {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.galeria-imagens h2, .secao-videos h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.galeria-imagens img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Espaço reservado para os vídeos */
+.secao-videos {
+  flex: 1;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 250px;
+  background-color: #e0e0e0;
+  border: 2px dashed #aaa;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
