@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Inteligência Artificial - Acessível</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Atalho de acessibilidade para leitores de tela -->
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- Barra de Acessibilidade -->
+  <header class="top-bar" aria-label="Controles de Acessibilidade">
+    <div class="container top-bar-content">
+      <span class="accessibility-title">Acessibilidade:</span>
+      <div class="font-controls">
+        <button id="decrease-font" aria-label="Diminuir tamanho da fonte">A-</button>
+        <button id="reset-font" aria-label="Restaurar tamanho da fonte original">A</button>
+        <button id="increase-font" aria-label="Aumentar tamanho da fonte">A+</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cabeçalho Principal -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <a href="#" aria-label="Página inicial do Portal IA">Portal <strong>IA</strong></a>
+      </div>
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#o-que-e">O que é IA</a></li>
+          <li><a href="#aplicacoes">Aplicações</a></li>
+          <li><a href="#futuro">O Futuro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="conteudo-principal" class="container">
+
+    <!-- Seção Hero -->
+    <section class="hero-section" aria-labelledby="titulo-hero">
+      <h1 id="titulo-hero">Entendendo a Inteligência Artificial de Forma Simples</h1>
+      <p class="lead">
+        A Inteligência Artificial transforma como vivemos e trabalhamos. Explore os conceitos fundamentais com clareza e acessibilidade.
+      </p>
+    </section>
+
+    <!-- Seção Informativa -->
+    <section id="o-que-e" class="info-section" aria-labelledby="titulo-o-que-e">
+      <h2 id="titulo-o-que-e">O que é Inteligência Artificial?</h2>
+      <p>
+        Inteligência Artificial (IA) é o campo da ciência da computação dedicado a criar sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como reconhecimento de voz, tomada de decisões e aprendizado.
+      </p>
+
+      <!-- Exemplo de imagem com texto alternativo descritivo -->
+      <figure class="accessible-image">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80" alt="Representação visual abstrata de nós de rede conectando dados digitais em tons suaves.">
+        <figcaption>Representação conceitual de redes neurais artificiais.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Cards de Conteúdo -->
+    <section id="aplicacoes" class="cards-section" aria-labelledby="titulo-aplicacoes">
+      <h2 id="titulo-aplicacoes">Principais Áreas da IA</h2>
+      <div class="card-grid">
+
+        <article class="card">
+          <h3>Aprendizado de Máquina</h3>
+          <p>Sistemas que aprendem e melhoram automaticamente com base em dados, sem serem explicitamente programados.</p>
+        </article>
+
+        <article class="card">
+          <h3>Processamento de Linguagem Natural</h3>
+          <p>Permite que computadores compreendam, interpretem e gerem texto e fala humana de forma natural.</p>
+        </article>
+
+        <article class="card">
+          <h3>Visão Computacional</h3>
+          <p>Capacidade de computadores extraírem informações úteis a partir de imagens digitais ou vídeos.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Portal IA — Desenvolvido com foco em acessibilidade e inclusão visual.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
