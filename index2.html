@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal de Inteligência Artificial - Acessível</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Acessível</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Atalho de acessibilidade para leitores de tela -->
-  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+    <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
 
-  <!-- Barra de Acessibilidade -->
-  <header class="top-bar" aria-label="Controles de Acessibilidade">
-    <div class="container top-bar-content">
-      <span class="accessibility-title">Acessibilidade:</span>
-      <div class="font-controls">
-        <button id="decrease-font" aria-label="Diminuir tamanho da fonte">A-</button>
-        <button id="reset-font" aria-label="Restaurar tamanho da fonte original">A</button>
-        <button id="increase-font" aria-label="Aumentar tamanho da fonte">A+</button>
-      </div>
-    </div>
-  </header>
+    <header role="banner">
+        <h1>Galeria Acessível</h1>
+    </header>
 
-  <!-- Cabeçalho Principal -->
-  <header class="main-header">
-    <div class="container header-flex">
-      <div class="logo">
-        <a href="#" aria-label="Página inicial do Portal IA">Portal <strong>IA</strong></a>
-      </div>
-      <nav aria-label="Navegação Principal">
-        <ul class="nav-links">
-          <li><a href="#o-que-e">O que é IA</a></li>
-          <li><a href="#aplicacoes">Aplicações</a></li>
-          <li><a href="#futuro">O Futuro</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <main id="conteudo-principal" role="main">
+        
+        <section aria-labelledby="titulo-imagens">
+            <h2 id="titulo-imagens">Galeria de Imagens</h2>
+            <div class="grid-galeria">
+                
+                <figure class="item-card">
+                    <img src="imagem1.jpg" alt="Descrição detalhada do conteúdo da imagem 1" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 1</figcaption>
+                </figure>
 
-  <!-- Conteúdo Principal -->
-  <main id="conteudo-principal" class="container">
+                <figure class="item-card">
+                    <img src="imagem2.jpg" alt="Descrição detalhada do conteúdo da imagem 2" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 2</figcaption>
+                </figure>
 
-    <!-- Seção Hero -->
-    <section class="hero-section" aria-labelledby="titulo-hero">
-      <h1 id="titulo-hero">Entendendo a Inteligência Artificial de Forma Simples</h1>
-      <p class="lead">
-        A Inteligência Artificial transforma como vivemos e trabalhamos. Explore os conceitos fundamentais com clareza e acessibilidade.
-      </p>
-    </section>
+                <figure class="item-card">
+                    <img src="imagem3.jpg" alt="Descrição detalhada do conteúdo da imagem 3" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 3</figcaption>
+                </figure>
 
-    <!-- Seção Informativa -->
-    <section id="o-que-e" class="info-section" aria-labelledby="titulo-o-que-e">
-      <h2 id="titulo-o-que-e">O que é Inteligência Artificial?</h2>
-      <p>
-        Inteligência Artificial (IA) é o campo da ciência da computação dedicado a criar sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como reconhecimento de voz, tomada de decisões e aprendizado.
-      </p>
+                <figure class="item-card">
+                    <img src="imagem4.jpg" alt="Descrição detalhada do conteúdo da imagem 4" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 4</figcaption>
+                </figure>
 
-      <!-- Exemplo de imagem acessível com alt descritivo -->
-      <figure class="accessible-image">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80" alt="Representação visual abstrata de nós de rede conectando dados digitais em tons suaves.">
-        <figcaption>Representação conceitual de redes neurais artificiais.</figcaption>
-      </figure>
-    </section>
+                <figure class="item-card">
+                    <img src="imagem5.jpg" alt="Descrição detalhada do conteúdo da imagem 5" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 5</figcaption>
+                </figure>
 
-    <!-- Cards de Conteúdo -->
-    <section id="aplicacoes" class="cards-section" aria-labelledby="titulo-aplicacoes">
-      <h2 id="titulo-aplicacoes">Principais Áreas da IA</h2>
-      <div class="card-grid">
+                <figure class="item-card">
+                    <img src="imagem6.jpg" alt="Descrição detalhada do conteúdo da imagem 6" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 6</figcaption>
+                </figure>
 
-        <article class="card">
-          <h3>Aprendizado de Máquina</h3>
-          <p>Sistemas que aprendem e melhoram automaticamente com base em dados, sem serem explicitamente programados.</p>
-        </article>
+                <figure class="item-card">
+                    <img src="imagem7.jpg" alt="Descrição detalhada do conteúdo da imagem 7" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 7</figcaption>
+                </figure>
 
-        <article class="card">
-          <h3>Processamento de Linguagem Natural</h3>
-          <p>Permite que computadores compreendam, interpretem e gerem texto e fala humana de forma natural.</p>
-        </article>
+                <figure class="item-card">
+                    <img src="imagem8.jpg" alt="Descrição detalhada do conteúdo da imagem 8" class="midia-acessivel">
+                    <figcaption>Legenda explicativa da Imagem 8</figcaption>
+                </figure>
 
-        <article class="card">
-          <h3>Visão Computacional</h3>
-          <p>Capacidade de computadores extraírem informações úteis a partir de imagens digitais ou vídeos.</p>
-        </article>
+            </div>
+        </section>
 
-      </div>
-    </section>
+        <section aria-labelledby="titulo-videos">
+            <h2 id="titulo-videos">Vídeos</h2>
+            <div class="grid-galeria">
 
-  </main>
+                <figure class="item-card">
+                    <video controls class="midia-acessivel">
+                        <source src="video1.mp4" type="video/mp4">
+                        <track kind="captions" src="legendas1.vtt" srclang="pt-br" label="Português" default>
+                        Seu navegador não suporta a reprodução deste vídeo.
+                    </video>
+                    <figcaption>Vídeo 1: Descrição do tema abordado no vídeo.</figcaption>
+                </figure>
 
-  <!-- Rodapé -->
-  <footer class="main-footer">
-    <div class="container footer-content">
-      <p>&copy; 2026 Portal IA — Desenvolvido com foco em acessibilidade e inclusão visual.</p>
-    </div>
-  </footer>
+                <figure class="item-card">
+                    <video controls class="midia-acessivel">
+                        <source src="video2.mp4" type="video/mp4">
+                        <track kind="captions" src="legendas2.vtt" srclang="pt-br" label="Português">
+                        Seu navegador não suporta a reprodução deste vídeo.
+                    </video>
+                    <figcaption>Vídeo 2: Descrição do tema abordado no vídeo.</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2026 - Conteúdo focado em acessibilidade visual e auditiva.</p>
+    </footer>
 
 </body>
 </html>

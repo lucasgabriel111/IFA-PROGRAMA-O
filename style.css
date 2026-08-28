@@ -1,218 +1,72 @@
-/* ==========================================================================
-   Configurações Base e Variáveis
-   ========================================================================== */
 :root {
-  /* Paleta de Cores Neutras de Alto Contraste */
-  --bg-primary: #f8f9fa;
-  --bg-surface: #ffffff;
-  --bg-subtle: #e9ecef;
-  
-  --text-main: #1a1d20;
-  --text-muted: #495057;
-  
-  --border-color: #ced4da;
-  --focus-ring: #0d6efd; /* Azul de alto contraste para navegação por teclado */
-  --accent-color: #2b3035;
-
-  /* Tipografia */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-html {
-  font-size: 100%; /* Permite alteração dinâmica de tamanho de fonte */
-  box-sizing: border-box;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
+    --cor-fundo: #FFFFFF;
+    --cor-texto: #1A1A1A;
+    --cor-destaque-azul: #005A9C;
+    --cor-destaque-amarelo: #FFC000;
+    --cor-borda: #000000;
+    --cor-card: #F4F4F4;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  background-color: var(--bg-primary);
-  color: var(--text-main);
-  line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 1.25rem;
 }
 
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* ==========================================================================
-   Acessibilidade e Foco
-   ========================================================================== */
-/* Link oculto para leitores de tela saltarem direto ao conteúdo */
+/* Link invisível para leitores de tela */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 10px;
-  background: var(--text-main);
-  color: var(--bg-surface);
-  padding: 8px 16px;
-  z-index: 100;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--cor-destaque-amarelo);
+    color: #000000;
+    padding: 8px;
+    z-index: 100;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .skip-link:focus {
-  top: 10px;
+    top: 0;
 }
 
-/* Anel de foco nítido para navegação por teclado */
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--focus-ring);
-  outline-offset: 3px;
-  border-radius: 2px;
+/* Organização em Grid */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
-/* ==========================================================================
-   Barra Superior de Acessibilidade
-   ========================================================================== */
-.top-bar {
-  background-color: var(--accent-color);
-  color: var(--bg-surface);
-  padding: 0.5rem 0;
+/* Card de Mídia */
+.item-card {
+    margin: 0;
+    border: 3px solid var(--cor-borda);
+    background-color: var(--cor-card);
+    padding: 0.75rem;
 }
 
-.top-bar-content {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
+.midia-acessivel {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--cor-borda);
 }
 
-.font-controls button {
-  background: var(--bg-surface);
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  padding: 0.3rem 0.6rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--cor-texto);
 }
 
-.font-controls button:hover {
-  background-color: var(--bg-subtle);
-}
-
-/* ==========================================================================
-   Cabeçalho Principal e Navegação
-   ========================================================================== */
-.main-header {
-  background-color: var(--bg-surface);
-  border-bottom: 2px solid var(--border-color);
-  padding: 1rem 0;
-}
-
-.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.logo a {
-  font-size: 1.5rem;
-  color: var(--text-main);
-  text-decoration: none;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  color: var(--text-main);
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: var(--text-muted);
-}
-
-/* ==========================================================================
-   Seções de Conteúdo
-   ========================================================================== */
-.hero-section {
-  padding: 3rem 0 2rem 0;
-}
-
-h1 {
-  font-size: 2.25rem;
-  margin-bottom: 0.8rem;
-  line-height: 1.2;
-}
-
-.lead {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-}
-
-.info-section {
-  padding: 2rem 0;
-}
-
-h2 {
-  font-size: 1.75rem;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.5rem;
-  margin-top: 2rem;
-}
-
-.accessible-image {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.accessible-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-}
-
-.accessible-image figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-/* Grid de Cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-/* Rodapé */
-.main-footer {
-  margin-top: 4rem;
-  padding: 2rem 0;
-  background-color: var(--bg-subtle);
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  color: var(--text-muted);
+/* Foco visível reforçado para navegação por teclado */
+video:focus,
+a:focus {
+    outline: 4px solid var(--cor-destaque-amarelo);
+    outline-offset: 2px;
 }
