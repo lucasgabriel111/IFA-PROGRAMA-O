@@ -1,72 +1,187 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
 :root {
-    --cor-fundo: #FFFFFF;
-    --cor-texto: #1A1A1A;
-    --cor-destaque-azul: #005A9C;
-    --cor-destaque-amarelo: #FFC000;
-    --cor-borda: #000000;
-    --cor-card: #F4F4F4;
+  --cor-fundo: #ffffff;
+  --cor-texto: #121212;
+  --cor-link: #0044cc;
+  --cor-fundo-card: #f8f9fa;
+  --cor-borda: #333333;
+  --cor-destaque: #d90429;
+  --fonte-padrao: Arial, Helvetica, sans-serif;
 }
 
+/* Modo Alto Contraste (Ativado pelo Botão) */
+body.alto-contraste {
+  --cor-fundo: #000000;
+  --cor-texto: #ffff00; /* Texto Amarelo */
+  --cor-link: #00ffff;  /* Links Ciano */
+  --cor-fundo-card: #121212;
+  --cor-borda: #ffff00;
+  --cor-destaque: #ff0000;
+}
+
+/* Reset Básico de Box-Sizing para Precisão de Layout */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. ESTRUTURA E TIPOGRAFIA
+   ========================================================================== */
 body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    margin: 0;
-    padding: 1.25rem;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-padrao);
+  font-size: 1.25rem; /* Padrão Ampliado (~20px) para facilitar a leitura */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Link invisível para leitores de tela */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--cor-destaque-amarelo);
-    color: #000000;
-    padding: 8px;
-    z-index: 100;
-    font-weight: bold;
-    text-decoration: none;
+header, main, footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.skip-link:focus {
-    top: 0;
+h1, h2, h3 {
+  color: var(--cor-texto);
+  line-height: 1.3;
+  margin-top: 0;
 }
 
-/* Organização em Grid */
-.grid-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+h1 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--cor-borda);
+  padding-bottom: 10px;
 }
 
-/* Card de Mídia */
-.item-card {
-    margin: 0;
-    border: 3px solid var(--cor-borda);
-    background-color: var(--cor-card);
-    padding: 0.75rem;
+h2 {
+  font-size: 1.5rem;
 }
 
-.midia-acessivel {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 1px solid var(--cor-borda);
+a {
+  color: var(--cor-link);
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-figcaption {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--cor-texto);
+a:hover {
+  text-decoration: none;
 }
 
-/* Foco visível reforçado para navegação por teclado */
-video:focus,
-a:focus {
-    outline: 4px solid var(--cor-destaque-amarelo);
-    outline-offset: 2px;
+/* ==========================================================================
+   3. RECURSOS DE ACESSIBILIDADE
+   ========================================================================== */
+
+/* Atalho Invisível para Leitores de Tela (Fica visível ao usar a tecla TAB) */
+.pular-navegacao {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+  padding: 12px 20px;
+  z-index: 1000;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid var(--cor-borda);
+}
+
+.pular-navegacao:focus {
+  top: 10px;
+}
+
+/* Destaque de Foco Visível para Navegação via Teclado (TAB) */
+a:focus, 
+button:focus, 
+input:focus, 
+video:focus, 
+summary:focus {
+  outline: 4px solid var(--cor-destaque) !important;
+  outline-offset: 4px;
+}
+
+/* Barra de Ferramentas de Acessibilidade no Topo */
+.barra-acessibilidade {
+  background-color: var(--cor-fundo-card);
+  padding: 15px;
+  text-align: right;
+  border-bottom: 2px solid var(--cor-borda);
+  display: block;
+}
+
+.barra-acessibilidade button {
+  font-size: 1rem;
+  padding: 10px 16px;
+  margin: 4px;
+  cursor: pointer;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border: 2px solid var(--cor-borda);
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.barra-acessibilidade button:hover {
+  background-color: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+/* ==========================================================================
+   4. CARDS DE MÍDIA (FOTOS E VÍDEOS)
+   ========================================================================== */
+.cartao-midia {
+  background-color: var(--cor-fundo-card);
+  border: 2px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px 0;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   5. SUPORTE PARA DEFICIÊNCIA AUDITIVA (TRANSCRIÇÃO)
+   ========================================================================== */
+.transcricao {
+  background-color: var(--cor-fundo);
+  border-left: 5px solid var(--cor-link);
+  border-top: 1px solid var(--cor-borda);
+  border-right: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+
+.transcricao summary {
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 5px 0;
+}
+
+.transcricao p {
+  margin: 10px 0 0 0;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   6. RODAPÉ
+   ========================================================================== */
+footer {
+  border-top: 2px solid var(--cor-borda);
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1rem;
 }
