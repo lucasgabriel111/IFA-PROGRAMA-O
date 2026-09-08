@@ -1,40 +1,52 @@
-<!DOCTYPE html>
+<html>
 <html lang="pt-BR">
 <head>
+    <h1>acessibilidade visual</h1>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Acessível</title>
+    <title>Minha Página Customizável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Barra de Acessibilidade Superior -->
-    <div class="accessibility-bar">
-        <button id="btn-read" aria-label="Ouvir o conteúdo da página">🔊 Ouvir Página</button>
-        <button id="btn-stop" aria-label="Parar leitura de áudio" style="display:none;">⏹️ Parar</button>
-        <button id="btn-contrast" aria-label="Alternar alto contraste">Contrast</button>
-    </div>
-
-    <header>
-        <h1 id="title">Portal de Informações Acessíveis</h1>
-        <p class="subtitle">Este site foi projetado para acessibilidade visual e auditiva.</p>
+    <header class="header-principal">
+        <!-- MODIFIQUE O TEXTO DO TÍTULO E SUBTÍTULO AQUI -->
+        <h1>Bem-vindo ao Meu Site</h1>
+        <p>Este site foi criado para tornar a informação mais acessível e facilitar a
+             navegação para pessoas com dificuldades visuais. Aqui, você encontrará conteúdos
+              claros, recursos acessíveis e uma experiência pensada para proporcionar mais autonomia, conforto e inclusão..</p>
     </header>
 
-    <main id="main-content">
-        <section class="card" aria-labelledby="visual-heading">
-            <h2 id="visual-heading">Acessibilidade Visual</h2>
-            <p>Para usuários com baixa visão ou cegueira, a página oferece alto contraste nativo, fontes ampliadas e uma ferramenta de conversão de texto em voz integrada no topo da tela.</p>
+    <main class="conteudo-principal">
+        
+        <!-- SEÇÃO 1: TEXTO E FOTO -->
+        <section class="secao-bloco">
+            <div class="texto-bloco">
+            </div>
+            <div class="foto-bloco">
+                <!-- MODIFIQUE O CAMINHO DA FOTO AQUI (Substitua "sua-foto-1.jpg" pelo nome da sua imagem) -->
+                <img src="sua-foto-1.jpg" alt="Descrição da primeira foto para acessibilidade">
+            </div>
         </section>
 
-        <section class="card" aria-labelledby="audio-heading">
-            <h2 id="audio-heading">Acessibilidade Auditiva</h2>
-            <p>Para usuários com perda auditiva, priorizamos instruções puramente textuais e recursos visuais claros. Todo conteúdo em áudio gerado pelo botão possui indicação visual correspondente em tempo real.</p>
+        <!-- SEÇÃO 2: FOTO E TEXTO (Invertido para dar ritmo visual) -->
+        <section class="secao-bloco bloco-invertido">
+            <div class="texto-bloco">
+                <h2>Meus Serviços ou Galeria</h2>
+                <p>Adicione mais informações nesta segunda seção. Você pode duplicar esses blocos no código HTML se precisar
+                     de mais espaço para novos conteúdos.</p>
+            </div>
+            <div class="foto-bloco">
+                <!-- MODIFIQUE O CAMINHO DA SEGUNDA FOTO AQUI -->
+                <img src="sua-foto-2.jpg" alt="Descrição da segunda foto para acessibilidade">
+            </div>
         </section>
+
     </main>
 
-    <!-- Indicador visual de áudio para acessibilidade auditiva -->
-    <div id="audio-status" aria-live="polite" class="sr-only"></div>
-
-    <script src="script.js"></script>
+    <footer class="rodape">
+        <p>&copy; .</p>
+    </footer>
+<script src="script.js"></script>
 </body>
 </html>
