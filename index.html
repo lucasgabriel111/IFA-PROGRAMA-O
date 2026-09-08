@@ -1,112 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modelo Acessível com Leitor de Voz NATIVO</title>
-  <style>
-    :root {
-      --cor-fundo: #ffffff;
-      --cor-texto: #121212;
-      --cor-link: #0044cc;
-      --cor-fundo-card: #f4f4f4;
-      --cor-borda: #333333;
-      --fonte-padrao: Arial, Helvetica, sans-serif;
-    }
-
-    body.alto-contraste {
-      --cor-fundo: #000000;
-      --cor-texto: #ffff00;
-      --cor-link: #00ffff;
-      --cor-fundo-card: #1a1a1a;
-      --cor-borda: #ffff00;
-    }
-
-    body {
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto);
-      font-family: var(--fonte-padrao);
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-
-    .pular-navegacao {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--cor-texto);
-      color: var(--cor-fundo);
-      padding: 8px;
-      z-index: 100;
-    }
-    .pular-navegacao:focus {
-      top: 0;
-    }
-
-    .barra-acessibilidade {
-      background-color: var(--cor-fundo-card);
-      padding: 10px;
-      text-align: right;
-      border-bottom: 2px solid var(--cor-borda);
-    }
-
-    .barra-acessibilidade button {
-      font-size: 1rem;
-      padding: 8px 12px;
-      margin-left: 5px;
-      cursor: pointer;
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto);
-      border: 2px solid var(--cor-borda);
-      font-weight: bold;
-    }
-
-    header, main, footer {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    a:focus, button:focus, input:focus, video:focus {
-      outline: 4px solid #ff0000 !important;
-      outline-offset: 2px;
-    }
-
-    a {
-      color: var(--cor-link);
-      font-weight: bold;
-    }
-
-    .cartao-midia {
-      background-color: var(--cor-fundo-card);
-      border: 2px solid var(--cor-borda);
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 30px;
-    }
-
-    img, video {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .transcricao {
-      background-color: var(--cor-fundo);
-      border-left: 4px solid var(--cor-link);
-      padding: 10px 15px;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Acessível</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <a href="#conteudo-principal" class="pular-navegacao">Pular para o conteúdo principal</a>
+    <!-- Barra de Acessibilidade Superior -->
+    <div class="accessibility-bar">
+        <button id="btn-read" aria-label="Ouvir o conteúdo da página">🔊 Ouvir Página</button>
+        <button id="btn-stop" aria-label="Parar leitura de áudio" style="display:none;">⏹️ Parar</button>
+        <button id="btn-contrast" aria-label="Alternar alto contraste">Contrast</button>
+    </div>
 
-  <section class="barra-acessibilidade" aria-label="Ferramentas de Acessibilidade">
-    <button onclick="lerPagina()">🔊 Ouvir Página</button>
-    <button onclick="pararLeitura()">⏹️ Parar Leitura</button>
-    <button onclick="alternarAltoContraste()">Alto Contraste</button>
+    <header>
+        <h1 id="title">Portal de Informações Acessíveis</h1>
+        <p class="subtitle">Este site foi projetado para acessibilidade visual e auditiva.</p>
+    </header>
+
+    <main id="main-content">
+        <section class="card" aria-labelledby="visual-heading">
+            <h2 id="visual-heading">Acessibilidade Visual</h2>
+            <p>Para usuários com baixa visão ou cegueira, a página oferece alto contraste nativo, fontes ampliadas e uma ferramenta de conversão de texto em voz integrada no topo da tela.</p>
+        </section>
+
+        <section class="card" aria-labelledby="audio-heading">
+            <h2 id="audio-heading">Acessibilidade Auditiva</h2>
+            <p>Para usuários com perda auditiva, priorizamos instruções puramente textuais e recursos visuais claros. Todo conteúdo em áudio gerado pelo botão possui indicação visual correspondente em tempo real.</p>
+        </section>
+    </main>
+
+    <!-- Indicador visual de áudio para acessibilidade auditiva -->
+    <div id="audio-status" aria-live="polite" class="sr-only"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
