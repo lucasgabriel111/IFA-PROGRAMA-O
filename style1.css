@@ -13,7 +13,7 @@ body {
 }
 
 /* ==========================================================================
-   BARRA DE ACESSIBILIDADE
+   BARRA DE ACESSIBILIDADE (Painel Superior)
    ========================================================================== */
 .acc-bar {
     background-color: #1e293b;
@@ -48,9 +48,10 @@ body {
     font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
-/* Foco visível essencial para navegação por teclado (Tab) */
+/* Destaque visual obrigatório para navegação por teclado (Tab) */
 .acc-bar button:focus {
     outline: 4px solid #f59e0b;
     outline-offset: 2px;
@@ -61,7 +62,7 @@ body {
 }
 
 /* ==========================================================================
-   LAYOUT DO CONTEÚDO
+   LAYOUT E CONTEÚDO DO SITE
    ========================================================================== */
 .site-header {
     max-width: 800px;
@@ -83,9 +84,21 @@ body {
     border-radius: 8px;
 }
 
-h1 { font-size: 2.2rem; color: #0f172a; margin-bottom: 10px; }
-h2 { font-size: 1.6rem; color: #1e3a8a; margin-top: 0; }
-p { font-size: 1.1rem; }
+h1 { 
+    font-size: 2.2rem; 
+    color: #0f172a; 
+    margin-bottom: 10px; 
+}
+
+h2 { 
+    font-size: 1.6rem; 
+    color: #1e3a8a; 
+    margin-top: 0; 
+}
+
+p { 
+    font-size: 1.1rem; 
+}
 
 .site-footer {
     text-align: center;
@@ -96,7 +109,7 @@ p { font-size: 1.1rem; }
 }
 
 /* ==========================================================================
-   CLASSES DE ALTO CONTRASTE (Inversão de Cores)
+   CLASSES DE ALTO CONTRASTE (Ativadas via JavaScript)
    ========================================================================== */
 body.high-contrast {
     background-color: #000000 !important;
@@ -108,10 +121,11 @@ body.high-contrast .content-card {
     border-color: #ffff00 !important;
 }
 
+/* Amarelo puro garante o maior nível de contraste possível sobre o fundo preto */
 body.high-contrast h1, 
 body.high-contrast h2, 
 body.high-contrast .acc-label {
-    color: #ffff00 !important; /* Amarelo tem o maior contraste no fundo preto */
+    color: #ffff00 !important; 
 }
 
 body.high-contrast .acc-bar {
@@ -125,7 +139,7 @@ body.high-contrast .acc-bar button {
     border-color: #ffff00;
 }
 
-/* Classe utilitária para esconder texto mantendo acessível a leitores de sistema */
+/* Oculta elementos da tela mas mantém visíveis para leitores de tela do sistema */
 .sr-only {
     position: absolute;
     width: 1px;
