@@ -1,60 +1,71 @@
-// Seleção dos elementos da página
+const htmlElement = document.documentElement;
+let currentSize = 110; // Percentual inicial da fonte (definido no CSS)
+
+document.getElementById('btn-increase').addEventListener('click', () => {
+    if (currentSize < 160) { // Limite máximo de aumento (160%)
+        currentSize += 10;
+        htmlElement.style.fontSize = currentSize + '%';
+    }
+});
+
+document.getElementById('btn-decrease').addEventListener('click', () => {
+    if (currentSize > 90) { // Limite mínimo de diminuição (90%)
+        currentSize -= 10;
+        htmlElement.style.fontSize = currentSize + '%';
+    }
+});
+
+// --- CONTROLE DE ALTO CONTRASTE ---
+document.getElementById('btn-contrast').addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+});
+
+// --- CONTROLE DE LEITURA DE TEXTO (VOZ) ---
 const btnRead = document.getElementById('btn-read');
 const btnStop = document.getElementById('btn-stop');
-const btnContrast = document.getElementById('btn-contrast');
 const audioStatus = document.getElementById('audio-status');
 
 let synth = window.speechSynthesis;
 let utterance = null;
 
-// Função para extrair e ler o texto estruturado da página
 btnRead.addEventListener('click', () => {
-    // Se já estiver lendo algo, para a leitura anterior antes de reiniciar
     if (synth.speaking) {
         synth.cancel();
     }
 
-    // Captura o texto apenas do conteúdo principal para evitar ler botões repetitivos
-    const textToRead = document.getElementById('main-content').innerText;
-    
-    utterance = new SpeechSynthesisUtterance(textToRead);
-    utterance.lang = 'pt-BR'; // Define o idioma para português brasileiro
-    utterance.rate = 1.0;     // Velocidade normal da fala
+    // Captura o texto do cabeçalho e do conteúdo principal
+    const headerText = document.getElementById('main-title').innerText;
+    const bodyText = document.getElementById('main-content').innerText;
+    const fullText = headerText + ". " + bodyText;
 
-    // Eventos para controle de interface visual e feedbacks de áudio
+    utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 1.0; // Velocidade da fala
+
+    // Atualiza a tela quando o áudio começa
     utterance.onstart = () => {
         btnRead.style.display = 'none';
         btnStop.style.display = 'inline-block';
-        audioStatus.textContent = "O áudio da página está sendo reproduzido."; // Alerta para deficientes auditivos
+        // Feedback visual/textual imediato (essencial para acessibilidade auditiva)
+        audioStatus.textContent = "O reprodutor de voz do site está ativo.";
     };
 
-    utterance.onend = () => {
-        resetAudioButtons();
-    };
+    // Reseta quando o áudio termina
+    utterance.onend = () => { resetAudioSystem(); };
+    utterance.onerror = () => { resetAudioSystem(); };
 
-    utterance.onerror = () => {
-        resetAudioButtons();
-    };
-
-    // Executa a leitura de voz
     synth.speak(utterance);
 });
 
-// Função para parar a reprodução de voz
 btnStop.addEventListener('click', () => {
     if (synth.speaking) {
         synth.cancel();
     }
-    resetAudioButtons();
+    resetAudioSystem();
 });
 
-function resetAudioButtons() {
+function resetAudioSystem() {
     btnRead.style.display = 'inline-block';
     btnStop.style.display = 'none';
-    audioStatus.textContent = "Leitura de áudio finalizada.";
+    audioStatus.textContent = "O áudio do site foi finalizado.";
 }
-
-// Funcionalidade do botão de Alto Contraste
-btnContrast.addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
-});

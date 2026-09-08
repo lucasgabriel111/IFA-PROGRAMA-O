@@ -3,48 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página Customizável</title>
+    <title>Portal Acessível Completo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="header-principal">
-        <!-- MODIFIQUE O TEXTO DO TÍTULO E SUBTÍTULO AQUI -->
-        <h1>Bem-vindo ao Meu Site</h1>
-        <p>Esta é uma página base feita para você personalizar como quiser.</p>
+    <!-- PAINEL DE ACESSIBILIDADE SUPERIOR -->
+    <nav class="acc-bar" aria-label="Ferramentas de Acessibilidade">
+        <div class="acc-group">
+            <span class="acc-label">Texto:</span>
+            <button id="btn-increase" aria-label="Aumentar tamanho do texto">A+</button>
+            <button id="btn-decrease" aria-label="Diminuir tamanho do texto">A-</button>
+        </div>
+        
+        <div class="acc-group">
+            <span class="acc-label">Contraste:</span>
+            <button id="btn-contrast" aria-label="Alternar alto contraste">Preto/Amarelo</button>
+        </div>
+
+        <div class="acc-group">
+            <span class="acc-label">Áudio:</span>
+            <button id="btn-read" aria-label="Ouvir o conteúdo da página">🔊 Ouvir Página</button>
+            <button id="btn-stop" aria-label="Parar leitura de áudio" style="display:none;">⏹️ Parar Leitura</button>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL DO SITE -->
+    <header class="site-header">
+        <h1 id="main-title">Acessibilidade Web Avançada</h1>
+        <p class="subtitle">Uma página projetada com autonomia para o usuário ajustar a leitura visual e auditiva.</p>
     </header>
 
-    <main class="conteudo-principal">
-        
-        <!-- SEÇÃO 1: TEXTO E FOTO -->
-        <section class="secao-bloco">
-            <div class="texto-bloco">
-                <h2>Sobre Mim</h2>
-                <p>Nosso site foi desenvolvido pensando na inclusão e acessibilidade de pessoas com dificuldades visuais e auditivas. Aqui, buscamos proporcionar uma experiência simples, acessível e confortável para todos.</p>
-            </div>
-            <div class="foto-bloco">
-                <!-- MODIFIQUE O CAMINHO DA FOTO AQUI (Substitua "sua-foto-1.jpg" pelo nome da sua imagem) -->
-                <img src="sua-foto-1.jpg" alt="Descrição da primeira foto para acessibilidade">
-            </div>
-        </section>
+    <main id="main-content">
+        <article class="content-card">
+            <h2>Como funcionam os recursos visuais?</h2>
+            <p>Ao clicar nos botões "A+" e "A-", o tamanho da fonte se ajusta proporcionalmente em toda a tela, sem quebrar o layout. O botão de contraste altera o fundo para preto absoluto e os textos para amarelo vibrante, reduzindo drasticamente o cansaço visual e ajudando pessoas com baixa visão ou fotofobia.</p>
+        </article>
 
-        <!-- SEÇÃO 2: FOTO E TEXTO (Invertido para dar ritmo visual) -->
-        <section class="secao-bloco bloco-invertido">
-            <div class="texto-bloco">
-                <h2>Meus Serviços ou Galeria</h2>
-                <p>Adicione mais informações nesta segunda seção. Você pode duplicar esses blocos no código HTML se precisar de mais espaço para novos conteúdos.</p>
-            </div>
-            <div class="foto-bloco">
-                <!-- MODIFIQUE O CAMINHO DA SEGUNDA FOTO AQUI -->
-                <img src="sua-foto-2.jpg" alt="Descrição da segunda foto para acessibilidade">
-            </div>
-        </section>
-
+        <article class="content-card">
+            <h2>Recursos para deficiência auditiva</h2>
+            <p>Para usuários surdos ou com limitações auditivas, o site elimina qualquer barreira baseada em som. Não dependemos de avisos sonoros para confirmar ações. Quando a função de leitura em áudio é ativada, um aviso textual claro aparece na tela informando o estado da reprodução em tempo real.</p>
+        </article>
     </main>
 
-    <footer class="rodape">
-        <p>&copy; 2026 Meu Site Personalizado. Todos os direitos reservados.</p>
+    <!-- Indicador visual de status de áudio (fundamental para acessibilidade auditiva) -->
+    <div id="audio-status" aria-live="polite" class="sr-only"></div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 - Plataforma Web Inclusiva.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

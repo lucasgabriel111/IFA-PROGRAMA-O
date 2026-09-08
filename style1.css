@@ -1,72 +1,131 @@
-/* Configurações Globais de Acessibilidade */
+html {
+    font-size: 110%; /* Base inicial ligeiramente maior (aprox. 18px) */
+    transition: font-size 0.2s ease;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    font-size: 1.25rem; /* Fonte maior que o padrão (20px) para ajudar a baixa visão */
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
     background-color: #ffffff;
-    color: #1a1a1a; /* Contraste escuro no fundo claro */
+    color: #1a1a1a;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
-/* Barra de Ferramentas */
-.accessibility-bar {
-    background-color: #222;
-    padding: 10px;
+/* ==========================================================================
+   BARRA DE ACESSIBILIDADE
+   ========================================================================== */
+.acc-bar {
+    background-color: #1e293b;
+    padding: 12px 20px;
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    border-bottom: 4px solid #3b82f6;
 }
 
-button {
-    font-size: 1.1rem;
+.acc-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acc-label {
+    color: #ffffff;
     font-weight: bold;
-    padding: 12px 24px;
-    background-color: #ffff00; /* Amarelo no preto garante contraste altíssimo */
-    color: #000000;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.acc-bar button {
+    background-color: #ffffff;
+    color: #1e293b;
     border: 2px solid #ffffff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
 }
 
-button:focus {
-    outline: 4px solid #0056b3; /* Destaque visual claro ao navegar via teclado (Tab) */
+/* Foco visível essencial para navegação por teclado (Tab) */
+.acc-bar button:focus {
+    outline: 4px solid #f59e0b;
+    outline-offset: 2px;
 }
 
-/* Conteúdo */
-header {
-    margin-bottom: 40px;
+.acc-bar button:hover {
+    background-color: #f1f5f9;
 }
 
-.card {
-    background-color: #f8f9fa;
-    border: 3px solid #333;
-    padding: 20px;
-    margin-bottom: 20px;
+/* ==========================================================================
+   LAYOUT DO CONTEÚDO
+   ========================================================================== */
+.site-header {
+    max-width: 800px;
+    margin: 40px auto 20px auto;
+    padding: 0 20px;
+}
+
+#main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-card {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    padding: 25px;
+    margin-bottom: 25px;
     border-radius: 8px;
 }
 
-h1, h2 {
-    color: #000000;
+h1 { font-size: 2.2rem; color: #0f172a; margin-bottom: 10px; }
+h2 { font-size: 1.6rem; color: #1e3a8a; margin-top: 0; }
+p { font-size: 1.1rem; }
+
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.9rem;
 }
 
-/* Classe de Alto Contraste (Invertido) */
+/* ==========================================================================
+   CLASSES DE ALTO CONTRASTE (Inversão de Cores)
+   ========================================================================== */
 body.high-contrast {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-body.high-contrast .card {
-    background-color: #121212;
-    border-color: #ffffff;
+body.high-contrast .content-card {
+    background-color: #111111 !important;
+    border-color: #ffff00 !important;
 }
 
-body.high-contrast h1, body.high-contrast h2 {
-    color: #ffff00;
+body.high-contrast h1, 
+body.high-contrast h2, 
+body.high-contrast .acc-label {
+    color: #ffff00 !important; /* Amarelo tem o maior contraste no fundo preto */
 }
 
-/* Esconder elementos mantendo acessível para leitores de tela de sistema */
+body.high-contrast .acc-bar {
+    background-color: #111111;
+    border-bottom-color: #ffff00;
+}
+
+body.high-contrast .acc-bar button {
+    background-color: #ffff00;
+    color: #000000;
+    border-color: #ffff00;
+}
+
+/* Classe utilitária para esconder texto mantendo acessível a leitores de sistema */
 .sr-only {
     position: absolute;
     width: 1px;
