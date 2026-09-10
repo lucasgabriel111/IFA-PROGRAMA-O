@@ -307,9 +307,9 @@
                               }
 
 
-               /* =========================
-                      FOCO PARA TECLADO
-                  ========================= */
+                              /* =========================
+                                 FOCO PARA TECLADO
+                                 ========================= */
 
                                  a:focus,
                                  button:focus {
@@ -351,11 +351,11 @@
 
                                                             }
 
-                                                            @media (max-width: 500px) 
+                                                            @media (max-width: 500px) {
 
-                                                                body{
+                                                                    body {
                                                                                 font-size: 17px;
-                                                                }
+                                                                    }
 
                                                                         .topo {
                                                                                     padding: 30px 18px;
@@ -377,3 +377,12 @@
                                                                                         h2 {
                                                                                                     font-size: 28px;
                                                                                         }
+
+                                                                                    }
+                                                                                        
+
+                                                                                    
+                                                                                
+                                                                            
+                                                                        
+                                    
