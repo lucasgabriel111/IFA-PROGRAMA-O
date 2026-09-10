@@ -1,152 +1,379 @@
-html {
-    font-size: 110%; /* Base inicial ligeiramente maior (aprox. 18px) */
-    transition: font-size 0.2s ease;
-}
+/* =========================
+   CONFIGURAÇÕES GERAIS
+   ========================= */
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.7;
-    background-color: #ffffff;
-    color: #1a1a1a;
-    margin: 0;
-    padding: 0;
-}
+   * {
+        box-sizing: border-box;
+            margin: 0;
+                padding: 0;
+   }
 
-/* ==========================================================================
-   BARRA DE ACESSIBILIDADE (Painel Superior)
-   ========================================================================== */
-.acc-bar {
-    background-color: #1e293b;
-    padding: 12px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    align-items: center;
-    border-bottom: 4px solid #3b82f6;
-}
+   html {
+        scroll-behavior: smooth;
+   }
 
-.acc-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+   body {
+        font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+                color: #172033;
+                    line-height: 1.7;
+                        font-size: 18px;
+   }
 
-.acc-label {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+   /* =========================
+      CABEÇALHO
+      ========================= */
 
-.acc-bar button {
-    background-color: #ffffff;
-    color: #1e293b;
-    border: 2px solid #ffffff;
-    padding: 8px 16px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
+      header {
+            background: #0b2545;
+                color: white;
+      }
 
-/* Destaque visual obrigatório para navegação por teclado (Tab) */
-.acc-bar button:focus {
-    outline: 4px solid #f59e0b;
-    outline-offset: 2px;
-}
+      .topo {
+            max-width: 1200px;
+                margin: auto;
+                    padding: 45px 25px;
+      }
 
-.acc-bar button:hover {
-    background-color: #f1f5f9;
-}
+      .topo h1 {
+            font-size: 42px;
+                margin-bottom: 10px;
+      }
 
-/* ==========================================================================
-   LAYOUT E CONTEÚDO DO SITE
-   ========================================================================== */
-.site-header {
-    max-width: 800px;
-    margin: 40px auto 20px auto;
-    padding: 0 20px;
-}
+      .topo p {
+            font-size: 20px;
+      }
 
-#main-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+      nav {
+            display: flex;
+                justify-content: center;
+                    gap: 10px;
+                        flex-wrap: wrap;
+                            padding: 15px;
+                                background: #071a31;
+      }
 
-.content-card {
-    background-color: #f8fafc;
-    border: 2px solid #e2e8f0;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-}
+      nav a {
+            color: white;
+                text-decoration: none;
+                    font-weight: bold;
+                        padding: 12px 20px;
+                            border-radius: 8px;
+      }
 
-h1 { 
-    font-size: 2.2rem; 
-    color: #0f172a; 
-    margin-bottom: 10px; 
-}
+      nav a:hover,
+      nav a:focus {
+            background: #ffffff;
+                color: #071a31;
+      }
 
-h2 { 
-    font-size: 1.6rem; 
-    color: #1e3a8a; 
-    margin-top: 0; 
-}
 
-p { 
-    font-size: 1.1rem; 
-}
+      /* =========================
+         ACESSIBILIDADE
+         ========================= */
 
-.site-footer {
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 40px;
-    border-top: 1px solid #e2e8f0;
-    font-size: 0.9rem;
-}
+         .acessibilidade {
+                background: white;
+                    padding: 25px;
+                        display: flex;
+                            justify-content: center;
+                                align-items: center;
+                                    gap: 10px;
+                                        flex-wrap: wrap;
+                                            border-bottom: 2px solid #dbe2ea;
+         }
 
-/* ==========================================================================
-   CLASSES DE ALTO CONTRASTE (Ativadas via JavaScript)
-   ========================================================================== */
-body.high-contrast {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
+         .acessibilidade h2 {
+                width: 100%;
+                    text-align: center;
+                        margin-bottom: 5px;
+         }
 
-body.high-contrast .content-card {
-    background-color: #111111 !important;
-    border-color: #ffff00 !important;
-}
+         button {
+                border: 2px solid #0b2545;
+                    background: #ffffff;
+                        color: #0b2545;
+                            padding: 12px 17px;
+                                border-radius: 8px;
+                                    font-size: 16px;
+                                        font-weight: bold;
+                                            cursor: pointer;
+         }
 
-/* Amarelo puro garante o maior nível de contraste possível sobre o fundo preto */
-body.high-contrast h1, 
-body.high-contrast h2, 
-body.high-contrast .acc-label {
-    color: #ffff00 !important; 
-}
+         button:hover,
+         button:focus {
+                background: #0b2545;
+                    color: white;
+                        outline: 3px solid #ffcc00;
+         }
 
-body.high-contrast .acc-bar {
-    background-color: #111111;
-    border-bottom-color: #ffff00;
-}
 
-body.high-contrast .acc-bar button {
-    background-color: #ffff00;
-    color: #000000;
-    border-color: #ffff00;
-}
+         /* =========================
+            CONTEÚDO
+            ========================= */
 
-/* Oculta elementos da tela mas mantém visíveis para leitores de tela do sistema */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
+            main {
+                    max-width: 1200px;
+                        margin: auto;
+                            padding: 40px 20px;
+            }
+
+            section {
+                    margin-bottom: 80px;
+            }
+
+            h2 {
+                    font-size: 34px;
+                        margin-bottom: 20px;
+                            color: #0b2545;
+            }
+
+            h3 {
+                    font-size: 25px;
+                        margin: 10px 0;
+            }
+
+            .introducao {
+                    margin-bottom: 30px;
+            }
+
+
+            /* =========================
+               HERO
+               ========================= */
+
+               .hero {
+                    display: grid;
+                        grid-template-columns: 1fr 1fr;
+                            gap: 40px;
+                                align-items: center;
+                                    background: white;
+                                        padding: 40px;
+                                            border-radius: 20px;
+               }
+
+               .hero h2 {
+                    font-size: 44px;
+               }
+
+               .hero img {
+                    width: 100%;
+                        height: 350px;
+                            object-fit: cover;
+                                border-radius: 15px;
+               }
+
+               .botao-principal {
+                    margin-top: 25px;
+                        background: #0b2545;
+                            color: white;
+               }
+
+
+               /* =========================
+                  CARDS
+                  ========================= */
+
+                  .cards {
+                        display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                                gap: 25px;
+                  }
+
+                  .card {
+                        background: white;
+                            border-radius: 15px;
+                                overflow: hidden;
+                                    box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+                  }
+
+                  .card img {
+                        width: 100%;
+                            height: 230px;
+                                object-fit: cover;
+                  }
+
+                  .card-conteudo {
+                        padding: 25px;
+                  }
+
+                  .card-conteudo p {
+                        margin-bottom: 20px;
+                  }
+
+                  .numero {
+                        display: inline-block;
+                            background: #0b2545;
+                                color: white;
+                                    padding: 5px 10px;
+                                        border-radius: 5px;
+                                            font-weight: bold;
+                  }
+
+
+                  /* =========================
+                     SOBRE
+                     ========================= */
+
+                     .sobre {
+                            background: #ffffff;
+                                padding: 40px;
+                                    border-left: 8px solid #0b2545;
+                                        border-radius: 10px;
+                     }
+
+                     .sobre p {
+                            margin-bottom: 20px;
+                     }
+
+
+                     /* =========================
+                        RODAPÉ
+                        ========================= */
+
+                        footer {
+                                background: #071a31;
+                                    color: white;
+                                        text-align: center;
+                                            padding: 45px 20px;
+                        }
+
+                        footer h2 {
+                                color: white;
+                        }
+
+
+                        /* =========================
+                           ALTO CONTRASTE
+                           ========================= */
+
+                           body.alto-contraste {
+                                background: #000;
+                                    color: #fff;
+                           }
+
+                           body.alto-contraste header,
+                           body.alto-contraste footer {
+                                background: #000;
+                                    border-bottom: 3px solid #fff;
+                           }
+
+                           body.alto-contraste .card,
+                           body.alto-contraste .hero,
+                           body.alto-contraste .sobre,
+                           body.alto-contraste .acessibilidade {
+                                background: #000;
+                                    color: #fff;
+                                        border: 2px solid #fff;
+                           }
+
+                           body.alto-contraste h2,
+                           body.alto-contraste h3 {
+                                color: #fff;
+                           }
+
+                           body.alto-contraste button {
+                                background: #000;
+                                    color: #fff;
+                                        border-color: #fff;
+                           }
+
+
+                           /* =========================
+                              MODO DALTONISMO
+                              ========================= */
+
+                              body.daltonico {
+                                    background: #f7f7f7;
+                                        color: #111;
+                              }
+
+                              body.daltonico header {
+                                    background: #111827;
+                              }
+
+                              body.daltonico .numero {
+                                    background: #111827;
+                                        color: #ffffff;
+                              }
+
+                              body.daltonico button {
+                                    border-color: #111827;
+                                        color: #111827;
+                              }
+
+                              body.daltonico .card {
+                                    border: 2px solid #111827;
+                              }
+
+
+               /* =========================
+                      FOCO PARA TECLADO
+                  ========================= */
+
+                                 a:focus,
+                                 button:focus {
+                                        outline: 4px solid #ffcc00;
+                                            outline-offset: 3px;
+                                 }
+
+
+                                 /* =========================
+                                    CELULAR
+                                    ========================= */
+
+                                    @media (max-width: 850px) {
+
+                                            .topo h1 {
+                                                        font-size: 32px;
+                                            }
+
+                                                .hero {
+                                                            grid-template-columns: 1fr;
+                                                                    padding: 25px;
+                                                }
+
+                                                    .hero h2 {
+                                                                font-size: 34px;
+                                                    }
+
+                                                        .cards {
+                                                                    grid-template-columns: 1fr;
+                                                        }
+
+                                                            .hero img {
+                                                                        height: 280px;
+                                                            }
+
+                                                                main {
+                                                                            padding: 25px 15px;
+                                                                }
+
+                                                            }
+
+                                                            @media (max-width: 500px) 
+
+                                                                body{
+                                                                                font-size: 17px;
+                                                                }
+
+                                                                        .topo {
+                                                                                    padding: 30px 18px;
+                                                                        }
+
+                                                                            nav {
+                                                                                        flex-direction: column;
+                                                                                                text-align: center;
+                                                                            }
+
+                                                                                .acessibilidade {
+                                                                                            padding: 20px 10px;
+                                                                                }
+
+                                                                                    .acessibilidade button {
+                                                                                                width: 100%;
+                                                                                    }
+
+                                                                                        h2 {
+                                                                                                    font-size: 28px;
+                                                                                        }
