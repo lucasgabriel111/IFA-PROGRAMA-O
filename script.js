@@ -1,71 +1,131 @@
-const htmlElement = document.documentElement;
-let currentSize = 110; // Percentual inicial da fonte (definido no CSS)
+/* =========================
+   TAMANHO DA FONTE
+   ========================= */
 
-document.getElementById('btn-increase').addEventListener('click', () => {
-    if (currentSize < 160) { // Limite máximo de aumento (160%)
-        currentSize += 10;
-        htmlElement.style.fontSize = currentSize + '%';
-    }
-});
+   let tamanhoFonte = 18;
 
-document.getElementById('btn-decrease').addEventListener('click', () => {
-    if (currentSize > 90) { // Limite mínimo de diminuição (90%)
-        currentSize -= 10;
-        htmlElement.style.fontSize = currentSize + '%';
-    }
-});
+   function aumentarFonte() {
 
-// --- CONTROLE DE ALTO CONTRASTE ---
-document.getElementById('btn-contrast').addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
-});
-
-// --- CONTROLE DE LEITURA DE TEXTO (VOZ) ---
-const btnRead = document.getElementById('btn-read');
-const btnStop = document.getElementById('btn-stop');
-const audioStatus = document.getElementById('audio-status');
-
-let synth = window.speechSynthesis;
-let utterance = null;
-
-btnRead.addEventListener('click', () => {
-    if (synth.speaking) {
-        synth.cancel();
+        if (tamanhoFonte < 30) {
+                    tamanhoFonte += 2;
+                            document.body.style.fontSize = tamanhoFonte + "px";
+        }
     }
 
-    // Captura o texto do cabeçalho e do conteúdo principal
-    const headerText = document.getElementById('main-title').innerText;
-    const bodyText = document.getElementById('main-content').innerText;
-    const fullText = headerText + ". " + bodyText;
 
-    utterance = new SpeechSynthesisUtterance(fullText);
-    utterance.lang = 'pt-BR';
-    utterance.rate = 1.0; // Velocidade da fala
+    function diminuirFonte() {
 
-    // Atualiza a tela quando o áudio começa
-    utterance.onstart = () => {
-        btnRead.style.display = 'none';
-        btnStop.style.display = 'inline-block';
-        // Feedback visual/textual imediato (essencial para acessibilidade auditiva)
-        audioStatus.textContent = "O reprodutor de voz do site está ativo.";
-    };
+            if (tamanhoFonte > 14) {
+                        tamanhoFonte -= 2;
+                                document.body.style.fontSize = tamanhoFonte + "px";
+            }
+        }
 
-    // Reseta quando o áudio termina
-    utterance.onend = () => { resetAudioSystem(); };
-    utterance.onerror = () => { resetAudioSystem(); };
 
-    synth.speak(utterance);
-});
+        /* =========================
+           ALTO CONTRASTE
+           ========================= */
 
-btnStop.addEventListener('click', () => {
-    if (synth.speaking) {
-        synth.cancel();
+           function altoContraste() {
+
+                document.body.classList.toggle("alto-contraste");
+
+           }
+
+
+           /* =========================
+              MODO DALTONISMO
+              ========================= */
+
+              function modoDaltonico() {
+
+                    document.body.classList.toggle("daltonico");
+
+              }
+
+
+              /* =========================
+                 LEITOR DE TEXTO
+                 ========================= */
+
+                 let vozAtual = null;
+
+
+                 function lerTexto(botao) {
+
+                        pararLeitura();
+
+                            const card = botao.closest(".card, .hero, .sobre");
+
+                                if (!card) {
+                                            return;
+                                }
+
+                                    const texto = card.innerText;
+
+                                        vozAtual = new SpeechSynthesisUtterance(texto);
+
+                                            vozAtual.lang = "pt-BR";
+                                                vozAtual.rate = 0.9;
+                                                    vozAtual.pitch = 1;
+
+                                                        speechSynthesis.speak(vozAtual);
+                            }
+
+
+                            /* =========================
+                               LER A PÁGINA
+                               ========================= */
+
+                               function lerPagina() {
+
+                                    pararLeitura();
+
+                                        const texto = document.querySelector("main").innerText;
+
+                                            vozAtual = new SpeechSynthesisUtterance(texto);
+
+                                                vozAtual.lang = "pt-BR";
+                                                    vozAtual.rate = 0.85;
+                                                        vozAtual.pitch = 1;
+
+                                                            speechSynthesis.speak(vozAtual);
+                               }
+
+
+                               /* =========================
+                                  PARAR LEITURA
+                                  ========================= */
+
+                                  function pararLeitura() {
+
+                                        if ("speechSynthesis" in window) {
+                                                    speechSynthesis.cancel();
+                                        }
+                                    }
+
+
+                                    /* =========================
+                                       TECLA ESC PARA PARAR
+                                       ========================= */
+
+                                       document.addEventListener("keydown", function(event) {
+
+                                            if (event.key === "Escape") {
+                                                        pararLeitura();
+                                            }
+
+                                        });
+                                            }
+                                       })
+                                        }
+                                  }
+                               }
+                                }
+                 }
+              }
+           }
+            }
     }
-    resetAudioSystem();
-});
-
-function resetAudioSystem() {
-    btnRead.style.display = 'inline-block';
-    btnStop.style.display = 'none';
-    audioStatus.textContent = "O áudio do site foi finalizado.";
-}
+        }
+   }
